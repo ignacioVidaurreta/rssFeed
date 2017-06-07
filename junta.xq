@@ -9,9 +9,11 @@
 			</channel>
 			{
 				for $item in $rssdocument/channel/item
-				return 
-					{$item/title}
-					{$item/link}
+				return
+					<item>
+						{$item/title}
+						{$item/link}
+					</item>
 					
 			}
 		</rss>
