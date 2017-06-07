@@ -13,7 +13,7 @@
 					<p ALIGN= center>Tema: Sociedad</p>
 				</font>
 			</b>
-			<xsl:apply-templates/>
+			<xsl:apply-templates select="//rss"/>
 		</body>
 	</html>
 </xsl:template>
@@ -31,26 +31,20 @@
 	</p>
 </xsl:template>
 
-<xsl:template name="Imprimir rss">
-	<xsl:for-each select="rss">
-		<xsl:param name="description" select="//rss/channel/description/text()"
-		<b>
-			<font size="4">
-
-			</font>
-		</b>
-		<p>
-			<xsl:for-each select="//rss">
-			<xsd:param name="title" select="//title"/>
-			<xsd:param name="link" select="/link">
-
-
+<xsl:template match="//rss">
+	<xsl:param name="description" select="//rss/channel/description/text()"/>
+	<b>
+		<font size="4">
+			<xsl:value-of select="$description"/>
+		</font>
+	</b>
+	<xsl:for-each select="//rss/channel/item">
+		<xsd:param name="title" select="/title/text()"/>
+		<xsd:param name="link" select="/link/text()"/>
 			<xsd:call-template name="Imprimir item">
-
+				<xsl:with-param name="title" select="$title"/>
+				<xsl:with-param name="title" select="$link"/>
 			</xsd:call-template>
-		</p>
-	</xsl:for-each>
-
-
+	</xsl:for-each >	
 </xsl:template>
 
