@@ -21,14 +21,13 @@
 <xsl:template name="Imprimir item">
 	<xsl:param name="title"/>
 	<xsl:param name="link"/>
-	<p>
-		<xsl:element name="a">
-			<xsl:attribute name="href">
-				<xsl:value-of select="$link"/>
-			</xsl:attribute>
-			<xsl:value-of select="$title"/>
-		</xsl>	
-	</p>
+	<xsl:element name="a">
+		<xsl:attribute name="href">
+			<xsl:value-of select="$link"/>
+		</xsl:attribute>
+		<xsl:value-of select="$title"/>
+	</xsl:element>
+	<BR/>
 </xsl:template>
 
 <xsl:template match="//rss">
@@ -45,6 +44,7 @@
 				<xsl:with-param name="title" select="$title"/>
 				<xsl:with-param name="title" select="$link"/>
 			</xsd:call-template>
+		<BR/>
 	</xsl:for-each >	
 </xsl:template>
 
