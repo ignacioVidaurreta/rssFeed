@@ -4,7 +4,7 @@
 	return 
 		<rss>
 			<channel>
-				{$rssdocument/channel/description}
+				<description>{$rssdocument/channel/title/text()}</description>
 				{$rssdocument/channel/link}
 			</channel>
 			{
